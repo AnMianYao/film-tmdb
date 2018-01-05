@@ -1,0 +1,344 @@
+html,body,#app,.favorites{
+  width: 100%;
+  height: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: Raleway, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 1em 0;
+  text-transform: uppercase;
+}
+#app .favorites header{
+  background: #ffffff;
+  color: #7c8081;
+  height: 64px;
+}
+.favorites .main{
+  width: 100%;
+  height: 100%;
+}
+.intro{
+  background-color: #2e3141;
+  background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../imgs/favorite.jpg");
+  background-size: auto, cover;
+  background-position: center, center;
+  width: 100%;
+  height: calc(100% - 64px);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.inner{
+  width: 80%;
+}
+
+
+.intro .inner >span{
+  border-radius: 100%;
+  border: solid 2px rgba(255, 255, 255, 0.125);
+  cursor: default;
+  display: inline-block;
+  font-size: 2em;
+  height: 2.25em;
+  line-height: 2.25em;
+  text-align: center;
+  width: 2.25em;
+  margin-bottom: 1.3em;
+}
+.intro .inner > span:before{
+  content: "\F007";
+
+}
+.inner h2{
+  opacity: 1;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.425);
+  font-size: 2.25em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
+  font-family: Raleway, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.inner p{
+  opacity: 1;
+  font-family: Raleway, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  text-transform: uppercase;
+  color:rgba(255, 255, 255, 0.725);
+}
+
+ .main >section:before, .main ul li:before, .main ul li:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 6.5em;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.favorites .main >section{
+  border: none;
+  position: relative;
+  background-color: rgba(46,49,65,1);
+  color: white;
+  padding-bottom: 6.5em;
+}
+ .main >section:before{
+  background-image: url("../imgs/f-select.svg");
+  transform: rotateY(180deg);
+  bottom: 100%;
+
+}
+.favorites .main >section >div{
+  width: 90%;
+  margin: auto;
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+.main >section  h2{
+  font-size: 1.2em;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 1em;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+}
+ .main >section >div a{
+  display: inline-block;
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 0em 0.5em 0.2em 0.5em;
+  margin-right: 1em;
+  border-bottom: solid 2px transparent;
+
+}
+.main >section >div a.active{
+  border-bottom: solid 2px rgba(76,92,150,1);
+}
+.main >section >div p select{
+  color: white;
+  display: inline-block !important;
+  max-width: 50%;
+  background-color: rgba(46,49,65,1);
+
+}
+
+.favorites .main >section i{
+  position: relative;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  display: none;
+
+}
+.favorites .main >section i.active{
+  display: inline-block;
+}
+.favorites .main >section i:before{
+  display: block;
+  position: absolute;
+  left: 0;
+
+}
+.favorites .main >section i.up:before{
+  content: "\F0DE";
+  top: 0.3em;
+}
+.favorites .main >section i.down:before{
+  content: "\F0DD";
+  top: -0.1em;
+}
+.favorites .main ul{
+  background-color: rgba(76,92,150,1);
+  color: white;
+}
+.favorites .main ul li{
+  position: relative;
+  margin-bottom: 6em;
+}
+.favorites .main ul li:last-child{
+  margin-bottom: 0;
+}
+.favorites .main ul li>a{
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+  padding: 3em 0 1em 0;
+  color:inherit;
+}
+
+.favorites.main ul li:nth-child(odd):before,.favorites .main ul li:nth-child(odd):after{
+  background-image: url("../imgs/f-odd.svg") ;
+}
+.favorites .main ul li:nth-child(even):before,.favorites .main ul li:nth-child(even):after{
+  background-image: url("../imgs/f-even.svg");
+}
+.favorites .main ul li:before{
+  top: -6.5em;
+}
+.favorites .main ul li:after{
+  top: 100%;
+
+}
+.favorites .main ul li:nth-child(odd):after{
+  transform: rotateX(180deg);
+}
+.favorites .main ul li:nth-child(even):after{
+  transform: rotateZ(180deg);
+}
+.favorites .main ul li:nth-child(even):before{
+  transform: rotateY(180deg);
+}
+.favorites .main ul li:nth-child(even){
+  background-color: rgba(69,85,141,1);
+  color: white;
+}
+.favorites .main ul li:last-child:after{
+  background-color: rgba(76,92,150,1);
+}
+.favorites .main ul li:nth-child(odd) article{
+  flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+}
+.favorites .main ul li .imgContainer img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.favorites .main ul li:nth-child(odd)  .imgContainer{
+  margin-left: 3em;
+}
+.favorites .main ul li:nth-child(even) .imgContainer{
+  margin-right: 3em;
+}
+.favorites .main ul li article{
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+
+}
+.favorites ul li article h3{
+  padding-bottom: 1em;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+  letter-spacing: 0.1em;
+  margin: 0 0 1em 0;
+}
+.favoritesul .imgContainer{
+  width: 19em;
+  height: 0;
+  padding-bottom: 19em;
+  background-color: #0dada8;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.favorites ul li article>div >span{
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: Raleway, Helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 2em 0;
+}
+.favorites ul li:nth-child(odd) {
+  text-align: right;
+}
+
+.favorites ul li article>div >span >i{
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100%;
+  border: solid 2px rgba(255, 255, 255, 0.125);
+  display: inline-block;
+  font-size: 1.25em;
+  height: 2em;
+  line-height: 1.65em;
+  margin-right: 0.85em;
+  text-align: center;
+  text-indent: 0.15em;
+  vertical-align: middle;
+  width: 2em;
+}
+.favorites ul li article>div >span >i:before{
+  content: "\F105";
+}
+@media screen and (max-width: 980px){
+  .favorites ul .imgContainer {
+    margin: 0 2em 2em 0;
+    width: 15em;
+    height: 0;
+    padding-bottom: 15em;
+  }
+  .favorites .main ul li >a{
+    padding: 3em 3em 1em 3em;
+  }
+  .favorites .main ul li:before,.favorites .main >section:before{
+    top: -4.75em;
+  }
+  .favorites .main ul li:before,.favorites .main ul li:after,.favorites .main >section:before{
+    height: 4.75em;
+  }
+  .favorites .main >section{
+    padding-bottom: 4.75em;
+  }
+}
+@media screen and (max-width: 736px){
+  .favorites ul .imgContainer {
+    width: 12em;
+    margin: 0 1.75em 2em 0;
+    height: 0;
+    padding-bottom: 12em;
+  }
+
+  .favorites .main ul li:before,.favorites .main >section:before{
+    top: -2.5em;
+  }
+  .favorites .main ul li:before,.favorites .main ul li:after,.favorites .main >section:before{
+    height: 2.5em;
+  }
+  .favorites .main >section{
+    padding-bottom: 2.5em;
+  }
+}
+@media screen and (max-width: 640px){
+  .favorites ul .imgContainer {
+    margin: 0 0 1em 0 !important;
+    max-width: 85%;
+    width: 12em;
+    height: 0;
+    padding-bottom: 12em;
+  }
+  .favorites ul li article{
+    flex-wrap: wrap;
+  }
+  .favorites ul li article >div:last-child{
+    width: 100%;
+    flex-shrink: 0;
+  }
+}
+
+
+
+
+
