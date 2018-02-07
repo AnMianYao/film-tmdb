@@ -72,8 +72,6 @@ router.get('/isToken',(req,res)=>{
 router.get('/favor',(req,res)=>{
   let sql=$sql.getFavor;
   let params=req.query;
-
-
   connection.query(sql,[params.username],function (err,result) {
     if (err){
       console.log(err);
@@ -88,7 +86,6 @@ router.get('/favor',(req,res)=>{
 router.post('/addUser',(req,res)=>{
   let sql=$sql.insert;
   let params=req.body;
-  let session=req.session;
   connection.query(sql,[params.username,params.password,params.favors],function (err,result) {
     if (err){
       console.log(err);

@@ -1,8 +1,6 @@
 <template>
     <div class="favorites">
-      <top v-bind:uparrow="upArrow" v-bind:loadMsg="loading"
-           @upArrow="changeUpArrow"></top>
-
+      <top v-bind:uparrow="upArrow" v-bind:loadMsg="loading" @upArrow="changeUpArrow"></top>
       <div class="main">
         <div class="intro">
           <div class="inner">
@@ -21,8 +19,8 @@
             </p>
 
             <p>
-              Filter by
-              <select ref="selected">
+             <label for="selectID"> Filter by</label>
+              <select ref="selected" id="selectID">
                 <option id="popularity">popularity</option>
                 <option id="time">released time</option>
               </select>
@@ -130,12 +128,11 @@
           return new  Promise(((resolve) => {
             self.$ajax.get('/api/user/favor',{
               params:{
-                username:self.getCookie("username")
+                username:self.getCookie("sessionID")
               }
             })
               .then(response=>{
                 let data=response.data[0].favors;
-
                 resolve(data);
               })
               .catch(err=>{

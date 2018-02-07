@@ -22,22 +22,19 @@
         <button class="center btn" @click="addUser">{{btn}}</button>
       </form>
 
-      <a v-bind:class="register?'':'hide'" @click="isLogin">register</a>
+      <a @click="isLogin">{{register[0]}}</a>
     </div>
   </div>
 </template>
 
 <script>
-  const USERNAME='j1angvei';
-  const PASSWORD='jiangwei0829';
-
   export default {
     data(){
       return{
         btn:"login",
         username:"",
         password:"",
-        register:true
+        register:['register',"login"]
       }
     },
     props:['loginMessage'],
@@ -57,8 +54,9 @@
         if (target.nodeName.toLowerCase()!=="a"){
           return false;
         }
-        this.register=false;
-        this.btn="register";
+        let element=this.register.shift();
+        this.register.push(element);
+        this.btn=target.innerHTML.toLowerCase();
 
       },
       hint(msg,callback){
@@ -105,17 +103,25 @@
           });
       },
       isToke(name){
-        this.$ajax.get('/api/user/isToken',{
-          params:{
-            username:name
-          }
-        })
-          .then(response=>{
-            return response.data.length>0;
+        let self=this;
+        return new Promise(function (resolve, reject) {
+          self.$ajax.get('/api/user/isToken',{
+            params:{
+              username:name
+            }
           })
-          .catch(err=>{
-            console.log(err)
-          });
+            .then(response=>{
+              if (response.data.length>0){
+                resolve();
+              }else {
+                reject()
+              }
+            })
+            .catch(err=>{
+              console.log(err)
+            });
+        });
+
       },
       addRegister(name,password){
         let data={
@@ -154,18 +160,22 @@
             let msg;
             let callback;
             let isUsernameToken=this.isToke(name);
-            if (isUsernameToken){
+
+            isUsernameToken.then(function () {
               msg="用户名已注册！";
               callback=null;
               self.username="";
               self.password="";
-            }else {
-              this.addRegister(name,password);
+              self.hint(msg,callback);
+            },function () {
+              self.addRegister(name,password);
               msg="注册成功！";
               callback=self.closeLogin;
               self.userLogged(name);
-            }
-            self.hint(msg,callback);
+              self.hint(msg,callback);
+            });
+
+
 
 
 
@@ -181,22 +191,4 @@
 
 
 <style lang="css">
-span.hint{
-  border-radius: 2px;
-  width: auto;
-  margin-top: 10px;
-  position: absolute;
-  max-width: 100%;
-  height: auto;
-  min-height: 48px;
-  line-height: 1.5em;
-  word-break: break-all;
-  background-color: #323232;
-  padding: 10px 25px;
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: #fff;
-  right: 2em;
-  bottom: 2em;
-}
 </style>

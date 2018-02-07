@@ -87,7 +87,7 @@ h1,h2,h3,h4,h5,h6{
   position: relative;
   background-color: rgba(46,49,65,1);
   color: white;
-  padding-bottom: 6.5em;
+  padding-bottom: 8.5em;
 }
  .main >section:before{
   background-image: url("../imgs/f-select.svg");
@@ -119,7 +119,7 @@ h1,h2,h3,h4,h5,h6{
   display: inline-block;
   text-transform: capitalize;
   text-decoration: none;
-  padding: 0em 0.5em 0.2em 0.5em;
+  padding: 0 0.5em 0.2em 0.5em;
   margin-right: 1em;
   border-bottom: solid 2px transparent;
 
@@ -127,10 +127,15 @@ h1,h2,h3,h4,h5,h6{
 .main >section >div a.active{
   border-bottom: solid 2px rgba(76,92,150,1);
 }
+.main >section >div p label{
+  color: white;
+  display: inline-block;
+  padding-right: 0.5em;
+}
 .main >section >div p select{
   color: white;
   display: inline-block !important;
-  max-width: 50%;
+  max-width: 45%;
   background-color: rgba(46,49,65,1);
 
 }
@@ -180,8 +185,8 @@ h1,h2,h3,h4,h5,h6{
   color:inherit;
 }
 
-.favorites.main ul li:nth-child(odd):before,.favorites .main ul li:nth-child(odd):after{
-  background-image: url("../imgs/f-odd.svg") ;
+.favorites .main ul li:nth-child(odd):before,.favorites .main ul li:nth-child(odd):after{
+  background-image: url("../imgs/f-odd.svg");
 }
 .favorites .main ul li:nth-child(even):before,.favorites .main ul li:nth-child(even):after{
   background-image: url("../imgs/f-even.svg");
@@ -243,11 +248,10 @@ h1,h2,h3,h4,h5,h6{
   letter-spacing: 0.1em;
   margin: 0 0 1em 0;
 }
-.favoritesul .imgContainer{
+.favorites .imgContainer{
   width: 19em;
   height: 0;
   padding-bottom: 19em;
-  background-color: #0dada8;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
